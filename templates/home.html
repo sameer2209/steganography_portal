@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+   <body>
+     <h1>Welcome to the Platform!</h1>
+     <h2>Encrypting the images...</h2>
+      <form action = "http://localhost:5000/encryption_uploader" method = "POST" enctype = "multipart/form-data">
+         <div class="">
+           Upload Cover Image
+           <input type = "file" name = "cover" />
+         </div>
+         <br>
+         <div class="">
+           Upload Secret Image
+           <input type = "file" name = "secret" />
+         </div>
+         <br>
+         <input type = "submit" value="Upload"/>
+      </form>
+      <button type="button" name="encrypt_button">Encrypt</button>
+      <a href="/static/stego.png" download><button type="button" name="download_stego_button">Download</button></a>
+      <h2>Decrypting the images...</h2>
+      <form action = "http://localhost:5000/decryption_uploader" method = "post" enctype = "multipart/form-data">
+        <div class="">
+          Upload the stego to decrypt:
+          <input type="file" name="stego">
+        </div>
+        <br>
+        <input type="submit" name="" value="Upload">
+      </form>
+      <button type="button" name="decrypt_button">Decrypt</button>
+      <a href="/static/secret.png" download><button type="button" name="download_secret_button">Download</button></a>
+   </body>
+</html>
