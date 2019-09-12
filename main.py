@@ -1,11 +1,11 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from werkzeug import secure_filename
 app = Flask(__name__)
 
 UPLOAD_FOLDER = "uploads/"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-@app.route('/home')
+@app.route('/')
 def home():
     return render_template("home.html")
 
@@ -24,4 +24,14 @@ def decryption_uploader():
         stego = request.files['stego']
         stego.save(os.path.join(app.config['UPLOAD_FOLDER'], "stego.png"))
         return "Stego Uploaded Succesfully"
+
+@app.route('/encrypt')
+def encrypt():
+    print("Encrypting image....")
+    return render_template("home.html")
+
+@app.route('/decrypt')
+def decrypt():
+    print("Decrypting image...")
+    return render_template("home.html")
 app.run()
